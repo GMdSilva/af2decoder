@@ -6,8 +6,7 @@ import matplotlib.pyplot as plt
 from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.models import load_model
 
-from attentionLayer import AttentionLayer
-from process_data import concatenate_data_parts, split_data
+from layers.attentionLayer import AttentionLayer
 
 matplotlib.use('TkAgg')
 random.seed(42)
@@ -87,7 +86,8 @@ def analyze_visualization(model_path: str,
     None: The function outputs visualizations and saves analysis results to a file.
     """
     # Load the model with custom attention layer.
-    model = load_model(model_path, custom_objects={'AttentionLayer': AttentionLayer})
+    model = load_model(f'{data_path}/results/{model_path}',
+                       custom_objects={'AttentionLayer': AttentionLayer})
 
     # Load and prepare data.
     x_test = load_pickle(f'{data_path}/test_sets/test_set_data.h5')
