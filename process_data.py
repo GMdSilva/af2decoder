@@ -102,12 +102,12 @@ def split_data(data: np.ndarray,
 	"""
 	# First split: Separate data into training+validation set and test set.
 	x_train_val, x_test, y_train_val, y_test = train_test_split(
-		data, labels, test_size=0.15, random_state=42, stratify=labels
+		data, labels, test_size=0.15, random_state=31, stratify=labels
 	)
 
 	# Second split: Further split the training+validation set into training set and validation set.
 	x_train, x_val, y_train, y_val = train_test_split(
-		x_train_val, y_train_val, test_size=0.176, random_state=42, stratify=y_train_val
+		x_train_val, y_train_val, test_size=0.176, random_state=31, stratify=y_train_val
 	)
 
 	with open(f'{data_path}/test_sets/test_set_data.h5', 'wb') as f_data:

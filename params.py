@@ -1,5 +1,5 @@
-epochs = 50
-batch_size = 4
+epochs = 100
+batch_size = 8
 dense_layers = 200
 dropout_rate = 0.1
 data_pos = 4
